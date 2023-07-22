@@ -16,12 +16,14 @@ p{
     margin-top: 0%;
     font-weight: 700;
     justify-content: center;
-    font-size: ;
+    font-size: larger;
 }
 
 ul{
     text-align: start;
     font-weight: 600;
+    font-size: 1rem;
+    font: bold;
 }
 
 
