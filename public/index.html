@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
-    />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <title>Newsletter Signup Project</title>
+  <title>Newsletter Signup Project</title>
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <div class="container">
-      <!-- Sign-up form start -->
-<div class="item boxone">
+  <!-- Feel free to remove these styles or customize in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sign-up form start -->
+    <div class="item boxtwo">
+      <img class="imagepic" src="illustration-sign-up-desktop.png">
+    </div>
+
+    <div class="item boxone">
       <h1>Stay updated!</h1>
 
       <h6>Join 60,000+ product managers receiving monthly updates on:</h6>
@@ -40,15 +36,49 @@
       <input type="email" name="email" id="email_id" placeholder="email@company.com">
       <div class="item boxthree">
         <button class="btn-submit" onclick="proceed()">Subscribe to monthly newsletter</button>
-       </div>
-</div>
-
-      <div class="item boxtwo">
-        <img class="imagepic" src="illustration-sign-up-desktop.png" />
+        <span id="emailError" class="error-message"></span>
       </div>
-
-      
-      <!-- Sign-up form end -->
     </div>
-  </body>
+    <!-- Sign-up form end -->
+  </div>
+
+  <!-- Include your JavaScript code below this line -->
+  
+  <script>
+    function isValidEmail(email) {
+      // Regular expression for basic email validation
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    }
+
+    function proceed() {
+      const emailInput = document.getElementById('email_id');
+      const emailError = document.getElementById('emailError');
+      const email = emailInput.value.trim();
+
+      if (isValidEmail(email)) {
+        // The email is valid, proceed with the form submission or any other action
+        emailError.textContent = '';
+        // Add your logic to submit the form or perform any other action here
+
+        // For demonstration purposes, we will display an alert for successful submission.
+        alert('Form submitted successfully!'); // You can replace this with your custom form submission logic.
+
+        // Redirect the user to the new page
+        window.location.href = 'https://www.example.com/new-page'; // Replace this URL with your desired page URL.
+      } else {
+        // The email is not valid, display an error message
+        emailError.textContent = 'Valid Email Required';
+      }
+    }
+  </script>
+  <style>
+    /* Add the CSS style for the error message */
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  </style>
+</body>
 </html>
